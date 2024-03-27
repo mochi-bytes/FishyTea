@@ -9,15 +9,16 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
 {
     private RectTransform rectTransform;
     private UnityEngine.UI.Image image;
-
+    
     public void OnBeginDrag(PointerEventData eventData)
     {
         image.color = new Color32(255, 255, 255, 170); // When dragged, box turns a different color
+        transform.SetAsLastSibling(); // set it to be the last sibling so that the cat is always on top of any new boba cups
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // Add different animations for cat while being dragged
+        // Add different animations for cat while being dragged!! 
         transform.position = Input.mousePosition; // cat is dragged by mouse 
     }
 
