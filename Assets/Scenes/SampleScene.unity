@@ -490,9 +490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobacup: {fileID: 3894594733375566997, guid: 1ca4865e399414074ac34c217206ea79, type: 3}
   spawnRate: 1
-  deadZoneX: -15
-  startingY: 1
-  startingX: 0
+  startingY: 0
+  isTop: 0
 --- !u!224 &1358189270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -526,9 +525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobacup: {fileID: 3894594733375566997, guid: 1ca4865e399414074ac34c217206ea79, type: 3}
   spawnRate: 1
-  deadZoneX: 9.7
   startingY: 0
-  startingX: 0
+  isTop: 1
 --- !u!1 &1360783636
 GameObject:
   m_ObjectHideFlags: 0

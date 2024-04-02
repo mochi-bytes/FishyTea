@@ -6,15 +6,26 @@ public class BobaCupMove : MonoBehaviour
 {
 
     public float moveSpeed;
-    // Start is called before the first frame update
+
+    public bool parentTop;
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
+        if (parentTop)
+        {
+            transform.position = transform.position + (Vector3.right * moveSpeed) * Time.deltaTime;
+
+        }
+        else
+        {
+            transform.position = transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
+        }
+
     }
 }
