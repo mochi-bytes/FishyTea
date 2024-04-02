@@ -19,7 +19,6 @@ public class BobaCupSpawner : MonoBehaviour
     void Start()
     {
         Spawn();
-        Debug.Log("is top:" + isTop);
     }
 
     // Update is called once per frame
@@ -53,11 +52,7 @@ public class BobaCupSpawner : MonoBehaviour
 
         foreach (GameObject bobacup in bobacups)
         {
-            if (bobacup.transform.position.x < -10)
-            {
-                Destroy(bobacup);
-            }
-            if (bobacup.transform.position.x > 10)
+            if (bobacup.transform.position.x < -10 || bobacup.transform.position.x > 10)
             {
                 Destroy(bobacup);
             }
