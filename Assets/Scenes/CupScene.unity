@@ -505,7 +505,7 @@ MonoBehaviour:
   boba: {fileID: 223255255201063608, guid: 52083c0f67bc241d59b78bd75267c857, type: 3}
   fish: {fileID: 2575011916823596874, guid: 6b92406713980462caee09d0442dc665, type: 3}
   maxFishSpawn: 10
-  maxBobaSpawn: 20
+  maxBobaSpawn: 30
   spawnRadius: 5
   minimumDistanceFish: 2.8
   minimumDistanceBoba: 1

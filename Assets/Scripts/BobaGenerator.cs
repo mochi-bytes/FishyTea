@@ -40,7 +40,8 @@ public class BobaGenerator : MonoBehaviour
             // We attempt to spawn a certain number of fish (numFish) that amount will not spawn
             //     because of some being randomly generated too close to each other
             if (!tooClose) {
-                Instantiate(fish, randomPosition, Quaternion.identity);
+                Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+                Instantiate(fish, randomPosition, randomRotation);
                 spawnPositions.Add(randomPosition);
                 fishToCatch++;
             }
