@@ -5,7 +5,17 @@ using UnityEngine;
 public class Draggable : MonoBehaviour
 {
     private Vector2 difference = Vector2.zero;
- 
+
+    private Vector3 middlePoint;
+    private bool isMovingToMiddle;
+
+    private void Start()
+    {
+        middlePoint = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, Camera.main.nearClipPlane));
+        middlePoint.z = 0f;
+    }
+
+
     private void OnMouseDown()
     {
         difference = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
@@ -15,4 +25,39 @@ public class Draggable : MonoBehaviour
     {
         transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
     }
+
+    private void OnMouseUp()
+    {
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject == gameObject)
+            {
+                moveToMiddle();
+                break;
+            }
+        }
+    }
+
+    private void moveToMiddle()
+    {
+        isMovingToMiddle = true;
+    }
+
+    void Update()
+    {
+        if (isMovingToMiddle)
+        {
+            // Move towards the middle point until the object reaches it
+            transform.position = Vector3.MoveTowards(transform.position, middlePoint, 35f * Time.deltaTime);
+
+            // Check if the object has reached the middle point
+            if (transform.position == middlePoint)
+            {
+                isMovingToMiddle = false; // Stop moving
+            }
+        }
+    }
+
 }
