@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1239602099312978294}
   - component: {fileID: 4773392530384319661}
   - component: {fileID: 5597535519512333183}
+  - component: {fileID: 6775442625306737037}
   m_Layer: 5
   m_Name: Boba
   m_TagString: Boba
@@ -128,3 +129,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6775442625306737037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223255255201063608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e34c893d71014fee8d9596b7c2cd1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveRadius: 4
+  speed: 0.5
