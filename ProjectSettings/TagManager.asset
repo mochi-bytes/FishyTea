@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boba
   - Fish
+  - BobaCup
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Mask
   - 
   - 
   - 
@@ -42,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Mask
+    uniqueID: 2764834865
     locked: 0
