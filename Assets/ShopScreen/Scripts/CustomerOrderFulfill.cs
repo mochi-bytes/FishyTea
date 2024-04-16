@@ -17,6 +17,11 @@ public class CustomerOrderFulfill : MonoBehaviour
 
     void OnMouseDown() // Change to a normal method that will be called when user drags the completed order to it
     {
+        orderDone();
+    }
+
+    public void orderDone()
+    {
         Destroy(gameObject);
         customerSpawnerScript.FreeSlot(orderIndex);
     }
