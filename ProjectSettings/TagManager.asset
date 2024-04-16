@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Boba
   - Fish
+  - BobaCup
+  - Shutter
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Layer1
+    uniqueID: 307587091
+    locked: 0
+  - name: Layer2
+    uniqueID: 3766442453
     locked: 0
