@@ -404,6 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d799afce924d943dd89b35d9d5ae2eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishTag: Fish
+  textToUpdate: {fileID: 111972688}
 --- !u!114 &719101690
 MonoBehaviour:
   m_ObjectHideFlags: 0
