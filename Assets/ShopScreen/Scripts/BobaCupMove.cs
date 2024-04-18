@@ -22,11 +22,13 @@ public class BobaCupMove : MonoBehaviour
     private Vector3 cursorPosition;
     
     private float currentDistance;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         camera = Camera.main;
         originalScale = transform.localScale;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -81,6 +83,12 @@ public class BobaCupMove : MonoBehaviour
 
      IEnumerator TransitionToNextScene()
     {
+        if (spriteRenderer != null) {
+            Color bobaColor = spriteRenderer.color;
+            Debug.Log("Boba color in: " + bobaColor);
+            PlayerPrefs.SetString("ObjectColor", ColorUtility.ToHtmlStringRGB(bobaColor));
+        }
+
         currentDistance = Vector3.Distance(camera.transform.position, cursorPosition);
         // Zoom in towards the target position
         while (currentDistance > 0.1f)
