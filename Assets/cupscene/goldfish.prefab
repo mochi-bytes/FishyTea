@@ -84,7 +84,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!58 &4348281149497942943
 CircleCollider2D:
@@ -133,4 +133,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98576bce68a1f422baea2094aed75b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishToCatchText: {fileID: 0}
