@@ -27,9 +27,17 @@ public class TimerScript : MonoBehaviour
         currentDuration -= Time.deltaTime;
         float percentageRemaining = currentDuration / totalDuration;
 
+        float localXScale = transform.localScale.x;
+
+        // float subtractPosition = xScale - localXScale;
+        // float newXPosition = -subtractPosition;
+
         // Adjust the width of the timer bar sprite
         Vector3 newScale = new Vector3(percentageRemaining * xScale, yScale, 1f);
         transform.localScale = newScale;
+
+        // Vector3 newPosition = new Vector3(newXPosition, transform.localPosition.y, transform.localPosition.z);
+        // transform.localPosition = newPosition;
 
         Color color = Color.Lerp(Color.green, Color.red, 1f - percentageRemaining);
         spriteRenderer.color = color;
