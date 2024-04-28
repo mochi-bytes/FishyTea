@@ -34,9 +34,12 @@ public class Draggable : MonoBehaviour
         animator.SetBool("isDragged", false);
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
 
-        if (colliders.Length == 1) {
-            moveToMiddle();
-        }
+        // if (colliders.Length == 1)
+        // {
+        //     moveToMiddle();
+        // }
+
+        moveToMiddle();
     }
 
     private void moveToMiddle()
