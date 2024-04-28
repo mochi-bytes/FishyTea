@@ -8,11 +8,13 @@ public class Draggable : MonoBehaviour
 
     private Vector3 middlePoint;
     private bool isMovingToMiddle;
+    private Animator animator = null;
 
     private void Start()
     {
         middlePoint = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, Camera.main.nearClipPlane));
         middlePoint.z = 0f;
+        animator = GetComponent<Animator>();
     }
 
 
@@ -24,19 +26,16 @@ public class Draggable : MonoBehaviour
     private void OnMouseDrag()
     {
         transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
+        animator.SetBool("isDragged", true);
     }
 
     private void OnMouseUp()
     {
+        animator.SetBool("isDragged", false);
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
 
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.gameObject == gameObject)
-            {
-                moveToMiddle();
-                break;
-            }
+        if (colliders.Length == 1) {
+            moveToMiddle();
         }
     }
 
