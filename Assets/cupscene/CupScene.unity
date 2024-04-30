@@ -483,6 +483,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bobaColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!1 &622516754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 622516756}
+  - component: {fileID: 622516755}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &622516755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622516754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023e007e7abc947a8912846d41e3668a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completedGame: 0
+  slotOccupied: 000000
+  bobaColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!4 &622516756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622516754}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.21357918, y: 6.854538, z: -1.0100147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &719101688
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +542,7 @@ GameObject:
   - component: {fileID: 719101691}
   - component: {fileID: 719101690}
   - component: {fileID: 719101689}
+  - component: {fileID: 719101693}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -564,6 +612,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &719101693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719101688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cb17bee07834ad980ffcb100259add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobaGenerator: {fileID: 0}
 --- !u!1 &1270027663
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +871,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: c007bc867a3a5499f9af95a35c05d182, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1152,3 +1213,4 @@ SceneRoots:
   - {fileID: 51104201}
   - {fileID: 1462762418}
   - {fileID: 1584749905}
+  - {fileID: 622516756}

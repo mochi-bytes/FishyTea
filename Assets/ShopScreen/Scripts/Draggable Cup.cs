@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Draggable : MonoBehaviour
+public class DraggableCup : MonoBehaviour
 {
     private Vector2 difference = Vector2.zero;
 
     private Vector3 middlePoint;
     private bool isMovingToMiddle;
-    public Color bobaColor;
-    private Animator animator = null;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
-        middlePoint = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, Camera.main.nearClipPlane));
+        middlePoint = transform.position;
         middlePoint.z = 0f;
-        animator = GetComponent<Animator>();
     }
 
 
@@ -27,26 +29,27 @@ public class Draggable : MonoBehaviour
     private void OnMouseDrag()
     {
         transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
-        animator.SetBool("isDragged", true);
     }
 
     private void OnMouseUp()
     {
-        animator.SetBool("isDragged", false);
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
 
-        // if (colliders.Length == 1)
-        // {
-        //     moveToMiddle();
-        // }
-
-        moveToMiddle();
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject == gameObject)
+            {
+                moveToMiddle();
+                break;
+            }
+        }
     }
 
-    private void moveToMiddle()
+     private void moveToMiddle()
     {
         isMovingToMiddle = true;
     }
+
 
     void Update()
     {
@@ -61,19 +64,10 @@ public class Draggable : MonoBehaviour
                 isMovingToMiddle = false; // Stop moving
             }
         }
+    
+        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Check if collision occurs with the specific object you want
-        if (collision.gameObject.CompareTag("BobaCup"))
-        {
-            SpriteRenderer collidedSpriteRenderer = collision.GetComponent<SpriteRenderer>();
 
-            // Get the color of the collided GameObject's sprite
-            ManagerScript.Instance.bobaColor = collidedSpriteRenderer.color;
-
-        }
-    }
 
 }

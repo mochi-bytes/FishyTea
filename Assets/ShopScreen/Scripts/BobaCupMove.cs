@@ -23,12 +23,15 @@ public class BobaCupMove : MonoBehaviour
     
     private float currentDistance;
     private SpriteRenderer spriteRenderer;
+    private CompletedBobaSpawner completedBobaSpawnerScript;
 
     void Start()
     {
         camera = Camera.main;
         originalScale = transform.localScale;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        GameObject completedBobaSpawner = GameObject.Find("CompletedBobaSpawner");
+        completedBobaSpawnerScript = completedBobaSpawner.GetComponent<CompletedBobaSpawner>();
     }
 
     // Update is called once per frame
@@ -66,7 +69,6 @@ public class BobaCupMove : MonoBehaviour
             transform.localScale *= scaleFactor;
 
             hoveringOnBoba = true;
-
         }
     }
 
@@ -88,20 +90,22 @@ public class BobaCupMove : MonoBehaviour
             Debug.Log("Boba color in: " + bobaColor);
             PlayerPrefs.SetString("ObjectColor", ColorUtility.ToHtmlStringRGB(bobaColor));
         }
-        
-        currentDistance = Vector3.Distance(camera.transform.position, cursorPosition);
-        // Zoom in towards the target position
-        while (currentDistance > 0.1f)
-        {
-            camera.transform.position = Vector3.MoveTowards(camera.transform.position, cursorPosition, zoomSpeed * Time.deltaTime);
+
+        if (completedBobaSpawnerScript.AllSlotsOccupied() == false) {
             currentDistance = Vector3.Distance(camera.transform.position, cursorPosition);
+            // Zoom in towards the target position
+            while (currentDistance > 0.1f)
+            {
+                camera.transform.position = Vector3.MoveTowards(camera.transform.position, cursorPosition, zoomSpeed * Time.deltaTime);
+                currentDistance = Vector3.Distance(camera.transform.position, cursorPosition);
             
-            yield return null;
+                yield return null;
+            }
+
+            hoveringOnBoba = false;
+            SceneManager.LoadScene("CupScene");
         }
         
-
-        hoveringOnBoba = false;
-        SceneManager.LoadScene("CupScene");
     }
 
 }
