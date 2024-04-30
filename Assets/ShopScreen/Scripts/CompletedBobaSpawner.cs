@@ -67,7 +67,6 @@ public class CompletedBobaSpawner : MonoBehaviour
         {
             if (!ManagerScript.Instance.slotOccupied[i])
             {
-                Debug.Log(i);
                 return i;
             }
         }
