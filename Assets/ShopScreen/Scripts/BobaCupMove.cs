@@ -88,7 +88,7 @@ public class BobaCupMove : MonoBehaviour
             Debug.Log("Boba color in: " + bobaColor);
             PlayerPrefs.SetString("ObjectColor", ColorUtility.ToHtmlStringRGB(bobaColor));
         }
-
+        
         currentDistance = Vector3.Distance(camera.transform.position, cursorPosition);
         // Zoom in towards the target position
         while (currentDistance > 0.1f)
