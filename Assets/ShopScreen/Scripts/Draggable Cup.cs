@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Draggable : MonoBehaviour
+public class DraggableCup : MonoBehaviour
 {
     private Vector2 difference = Vector2.zero;
 
     private Vector3 middlePoint;
     private bool isMovingToMiddle;
 
-    public Color bobaColor;
-
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
-        middlePoint = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, Camera.main.nearClipPlane));
+        middlePoint = transform.position;
         middlePoint.z = 0f;
     }
 
@@ -42,10 +45,11 @@ public class Draggable : MonoBehaviour
         }
     }
 
-    private void moveToMiddle()
+     private void moveToMiddle()
     {
         isMovingToMiddle = true;
     }
+
 
     void Update()
     {
@@ -60,20 +64,10 @@ public class Draggable : MonoBehaviour
                 isMovingToMiddle = false; // Stop moving
             }
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Check if collision occurs with the specific object you want
-        if (collision.gameObject.CompareTag("BobaCup"))
-        {
-            SpriteRenderer collidedSpriteRenderer = collision.GetComponent<SpriteRenderer>();
+    
         
-            // Get the color of the collided GameObject's sprite
-            Debug.Log(bobaColor);
-            ManagerScript.Instance.bobaColor = collidedSpriteRenderer.color;
-
-        }
     }
+
+
 
 }

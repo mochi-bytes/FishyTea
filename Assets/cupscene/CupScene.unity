@@ -202,6 +202,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111972686}
   m_CullTransparentMesh: 1
+--- !u!1 &244592449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 244592451}
+  - component: {fileID: 244592450}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &244592450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244592449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023e007e7abc947a8912846d41e3668a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completedGame: 0
+  slotOccupied: 000000
+  bobaColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!4 &244592451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244592449}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.59596, y: -0.18073146, z: 0.5956157}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &446524156
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +432,7 @@ GameObject:
   - component: {fileID: 719101691}
   - component: {fileID: 719101690}
   - component: {fileID: 719101689}
+  - component: {fileID: 719101693}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -454,6 +502,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &719101693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719101688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cb17bee07834ad980ffcb100259add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobaGenerator: {fileID: 0}
 --- !u!1 &1270027663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,3 +1271,4 @@ SceneRoots:
   - {fileID: 1492377061}
   - {fileID: 1393129989}
   - {fileID: 1901184244}
+  - {fileID: 244592451}

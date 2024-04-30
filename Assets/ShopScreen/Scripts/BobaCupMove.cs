@@ -22,11 +22,14 @@ public class BobaCupMove : MonoBehaviour
     private Vector3 cursorPosition;
     
     private float currentDistance;
+    private CompletedBobaSpawner completedBobaSpawnerScript;
 
     void Start()
     {
         camera = Camera.main;
         originalScale = transform.localScale;
+        GameObject completedBobaSpawner = GameObject.Find("CompletedBobaSpawner");
+        completedBobaSpawnerScript = completedBobaSpawner.GetComponent<CompletedBobaSpawner>();
     }
 
     // Update is called once per frame
@@ -64,7 +67,6 @@ public class BobaCupMove : MonoBehaviour
             transform.localScale *= scaleFactor;
 
             hoveringOnBoba = true;
-
         }
     }
 
@@ -81,19 +83,21 @@ public class BobaCupMove : MonoBehaviour
 
      IEnumerator TransitionToNextScene()
     {
-        currentDistance = Vector3.Distance(camera.transform.position, cursorPosition);
-        // Zoom in towards the target position
-        while (currentDistance > 0.1f)
-        {
-            camera.transform.position = Vector3.MoveTowards(camera.transform.position, cursorPosition, zoomSpeed * Time.deltaTime);
+        if (completedBobaSpawnerScript.AllSlotsOccupied() == false) {
             currentDistance = Vector3.Distance(camera.transform.position, cursorPosition);
+            // Zoom in towards the target position
+            while (currentDistance > 0.1f)
+            {
+                camera.transform.position = Vector3.MoveTowards(camera.transform.position, cursorPosition, zoomSpeed * Time.deltaTime);
+                currentDistance = Vector3.Distance(camera.transform.position, cursorPosition);
             
-            yield return null;
+                yield return null;
+            }
+
+            hoveringOnBoba = false;
+            SceneManager.LoadScene("CupScene");
         }
         
-
-        hoveringOnBoba = false;
-        SceneManager.LoadScene("CupScene");
     }
 
 }
