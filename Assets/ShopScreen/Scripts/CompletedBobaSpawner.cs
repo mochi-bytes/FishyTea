@@ -67,7 +67,6 @@ public class CompletedBobaSpawner : MonoBehaviour
         {
             if (!ManagerScript.Instance.slotOccupied[i])
             {
-                Debug.Log(i);
                 return i;
             }
         }
@@ -76,10 +75,12 @@ public class CompletedBobaSpawner : MonoBehaviour
 
     public void FreeSlot(int slotIndex)
     {
+        Debug.Log("freeing slot" + slotIndex);
         // Mark the specified slot as free
         if (slotIndex >= 0 && slotIndex < ManagerScript.Instance.slotOccupied.Length)
         {
             ManagerScript.Instance.slotOccupied[slotIndex] = false;
+    
         }
     }
 }

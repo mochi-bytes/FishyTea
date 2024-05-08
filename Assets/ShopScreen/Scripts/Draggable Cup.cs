@@ -6,18 +6,34 @@ using UnityEngine.SceneManagement;
 public class DraggableCup : MonoBehaviour
 {
     private Vector2 difference = Vector2.zero;
-
-    private Vector3 middlePoint;
     private bool isMovingToMiddle;
+    
+    private CompletedBobaSpawner completedBobaSpawnerScript;
 
+    private Vector3 initialPosition;
+
+    private int index;
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
-        middlePoint = transform.position;
-        middlePoint.z = 0f;
+        initialPosition = transform.position;
+      
+        if (Mathf.Approximately(initialPosition.y, 0.04000001f))
+        {
+            index = 0;
+        } else if (initialPosition.y == -1.27f)
+        {
+            index = 1;
+        } else 
+        {
+            index = 2;
+        }
+        initialPosition.z = 0f;
+        GameObject completedBobaSpawner = GameObject.Find("CompletedBobaSpawner");
+        completedBobaSpawnerScript = completedBobaSpawner.GetComponent<CompletedBobaSpawner>();
     }
 
 
@@ -37,11 +53,17 @@ public class DraggableCup : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
+            if (collider.gameObject.CompareTag("TrashCan"))
+            {
+                completedBobaSpawnerScript.FreeSlot(index);
+                Destroy(gameObject);
+                break;
+            }
             if (collider.gameObject == gameObject)
             {
                 moveToMiddle();
-                break;
             }
+
         }
     }
 
@@ -56,10 +78,10 @@ public class DraggableCup : MonoBehaviour
         if (isMovingToMiddle)
         {
             // Move towards the middle point until the object reaches it
-            transform.position = Vector3.MoveTowards(transform.position, middlePoint, 35f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, initialPosition, 35f * Time.deltaTime);
 
             // Check if the object has reached the middle point
-            if (transform.position == middlePoint)
+            if (transform.position == initialPosition)
             {
                 isMovingToMiddle = false; // Stop moving
             }
@@ -67,7 +89,5 @@ public class DraggableCup : MonoBehaviour
     
         
     }
-
-
 
 }

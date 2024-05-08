@@ -87,7 +87,6 @@ public class BobaCupMove : MonoBehaviour
     {
         if (spriteRenderer != null) {
             Color bobaColor = spriteRenderer.color;
-            Debug.Log("Boba color in: " + bobaColor);
             PlayerPrefs.SetString("ObjectColor", ColorUtility.ToHtmlStringRGB(bobaColor));
         }
 
