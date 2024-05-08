@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameTimerScript : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameTimerScript : MonoBehaviour
         startTime = Time.time;
         // Calculate the distance to move based on the screen width
         journeyLength = Screen.width;
+        CleanupScript.instance.AddObjectToDestroyOnLoad(gameObject);
     }
 
     private void Awake()
@@ -40,9 +42,11 @@ public class GameTimerScript : MonoBehaviour
         transform.position += Vector3.left * speed * Time.deltaTime;
 
         // once it gets to x = -17, get to end screen
-        if (transform.position.x <= -17.82f) 
+        // if (transform.position.x <= -17.82f) 
+        if (transform.position.x <= -1f) 
         {
             Debug.Log("put in end screen here!!!");
+            SceneManager.LoadScene("EndScene");
         }
     }
 }
