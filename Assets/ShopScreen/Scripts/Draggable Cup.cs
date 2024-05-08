@@ -32,6 +32,7 @@ public class DraggableCup : MonoBehaviour
         initialPosition = transform.position;
 
         Debug.Log("bobaspot" + initialPosition.y);
+
         if (Mathf.Approximately(initialPosition.y, 0.5700001f))
         {
             index = 0;
