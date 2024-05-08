@@ -7,18 +7,19 @@ public class CompletedBobaSpawner : MonoBehaviour
 {
     public Transform[] spawnPoints; // Array of spawn points where game objects can be spawned
     public GameObject gameObjectPrefab; // Prefab of the game object to be spawned
-     // Array to track whether each slot is occupied
+                                        // Array to track whether each slot is occupied
 
     private int orderIndex;
 
- void Start()
+    void Start()
     {
 
     }
 
     void Update()
-    { 
-        if (ManagerScript.Instance.completedGame == true) {
+    {
+        if (ManagerScript.Instance.completedGame == true)
+        {
             SpawnGameObject();
             ManagerScript.Instance.completedGame = false;
         }
@@ -42,7 +43,10 @@ public class CompletedBobaSpawner : MonoBehaviour
             // Spawn the game object at the free slot
             GameObject spawnedCompletedBoba = Instantiate(gameObjectPrefab, spawnPoints[slotIndex].position, Quaternion.identity);
             SpriteRenderer renderer = spawnedCompletedBoba.GetComponent<SpriteRenderer>();
-            renderer.color = ManagerScript.Instance.bobaColor;
+
+            string bobaColor = PlayerPrefs.GetString("ObjectColor", "#EEBC8A"); // Default color white
+            renderer.color = HexToColor(bobaColor);
+            Debug.Log("GETTING OUT: " + renderer.color);
             renderer.sortingOrder = 5;
             ManagerScript.Instance.slotOccupied[slotIndex] = true; // Mark the slot as occupied
         }
@@ -82,5 +86,34 @@ public class CompletedBobaSpawner : MonoBehaviour
         {
             ManagerScript.Instance.slotOccupied[slotIndex] = false;
         }
+    }
+
+    Color HexToColor(string hex)
+    {
+        Color color = Color.clear;
+        if (!string.IsNullOrEmpty(hex) && hex.Length >= 6)
+        {
+            if (hex[0] == '#')
+                hex = hex.Substring(1);
+
+            if (hex.Length == 6)
+            {
+                byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+                byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+                byte b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+
+                color = new Color32(r, g, b, 255);
+            }
+            else if (hex.Length == 8)
+            {
+                byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+                byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+                byte b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+                byte a = byte.Parse(hex.Substring(6, 2), System.Globalization.NumberStyles.HexNumber);
+
+                color = new Color32(r, g, b, a);
+            }
+        }
+        return color;
     }
 }

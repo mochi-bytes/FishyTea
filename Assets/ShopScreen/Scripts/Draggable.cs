@@ -72,7 +72,7 @@ public class Draggable : MonoBehaviour
 
             // Get the color of the collided GameObject's sprite
             ManagerScript.Instance.bobaColor = collidedSpriteRenderer.color;
-
+            print("GOING INTO " + collidedSpriteRenderer.color);
         }
     }
 

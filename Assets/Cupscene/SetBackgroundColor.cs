@@ -13,9 +13,10 @@ public class SetBackgroundColor : MonoBehaviour
         string bobaColor = PlayerPrefs.GetString("ObjectColor", "#EEBC8A"); // Default color white
         Debug.Log("Boba color out: " + bobaColor);
         GetComponent<Camera>().backgroundColor = HexToColor(bobaColor);
+        Debug.Log("BG COLOR IS " +  GetComponent<Camera>().backgroundColor);
     }
 
-    Color HexToColor(string hex)
+    public Color HexToColor(string hex)
     {
         Color color = Color.clear;
         if (!string.IsNullOrEmpty(hex) && hex.Length >= 6)
