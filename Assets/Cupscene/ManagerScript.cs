@@ -23,6 +23,8 @@ public class ManagerScript : MonoBehaviour
 
     private AudioSource angrySoundPlayer;
 
+    public bool isShutterDown;
+
     void Start()
     {
         totalScore = 0;
@@ -32,6 +34,7 @@ public class ManagerScript : MonoBehaviour
         lowPassFilter = GetComponent<AudioLowPassFilter>();
 
         angrySoundPlayer = gameObject.AddComponent<AudioSource>();
+        isShutterDown = true;
     }
 
     private void Update()
