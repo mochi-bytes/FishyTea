@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour
 {
-    Color color1 = new Color(0, 1, 0, 1);
-    Color color2 = new Color(1, 0, 0, 1);
-    Color color3 = new Color(0, 0, 1, 1);
+    Color color1 = new Color(0.859f, 0.643f, 0.298f, 1);
+    Color color2 = new Color(0.929f, 0.62f, 0.718f, 1);
+    Color color3 = new Color(0.714f, 0.902f, 0.635f, 1);
     private Color[] colorChoices;
     private SpriteRenderer rend;
     public Color bobaColor;

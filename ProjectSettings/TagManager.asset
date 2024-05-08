@@ -10,6 +10,7 @@ TagManager:
   - Shutter
   - CompletedBoba
   - BobaOrder
+  - TrashCan
   layers:
   - Default
   - TransparentFX
