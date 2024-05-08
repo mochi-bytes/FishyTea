@@ -7,6 +7,9 @@ TagManager:
   - Boba
   - Fish
   - BobaCup
+  - Shutter
+  - CompletedBoba
+  - BobaOrder
   layers:
   - Default
   - TransparentFX

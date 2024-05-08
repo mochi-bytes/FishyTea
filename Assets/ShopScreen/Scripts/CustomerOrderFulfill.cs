@@ -11,6 +11,13 @@ public class CustomerOrderFulfill : MonoBehaviour
 
     private CustomerSpawner customerSpawnerScript;
     private ManagerScript managerScript; 
+    public static CustomerOrderFulfill Instance;
+    private static GameObject instance;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {

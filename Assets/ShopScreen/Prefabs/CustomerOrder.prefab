@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1211263780730947224}
   m_Layer: 0
   m_Name: CustomerOrder
-  m_TagString: Untagged
+  m_TagString: BobaOrder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,8 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderIndex: 0
-  totalScore: 0
-  totalScoreText: {fileID: 5958349535271566084, guid: 5f85bf50b50f64e3b945d2b2075fb12a, type: 3}
 --- !u!61 &3858256380664023495
 BoxCollider2D:
   m_ObjectHideFlags: 0

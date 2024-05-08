@@ -11,10 +11,34 @@ public class CustomerSpawner : MonoBehaviour
     private bool[] slotOccupied; // Array to track whether each slot is occupied
     private float timer = 0f;
 
+    private ManagerScript managerScript; 
+
+    public static CustomerSpawner Instance;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    
+    }
+
     void Start()
     {
+        GameObject manager = GameObject.Find("Manager");
+        managerScript = manager.GetComponent<ManagerScript>();
+
         slotOccupied = new bool[spawnPoints.Length]; // Initialize the array to track slot occupancy
-        InvokeRepeating("SpawnGameObject", 0f, spawnInterval); // Start spawning game objects
+
+        if (managerScript.startSpawning) {
+            InvokeRepeating("SpawnGameObject", 0f, spawnInterval); // Start spawning game objects
+            managerScript.startSpawning = false;
+        }
     }
 
     void Update()
@@ -24,7 +48,7 @@ public class CustomerSpawner : MonoBehaviour
     }
 
     void SpawnGameObject()
-    {
+    {       
         // If all slots are occupied, do not spawn a new game object
         if (AllSlotsOccupied())
         {

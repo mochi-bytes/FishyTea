@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class ManagerScript : MonoBehaviour
     public int totalScore;
     public Text totalScoreText;
     Scene scene;
+    public bool startSpawning = true;
 
     void Start() {
         totalScore = 0;
