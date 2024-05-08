@@ -19,12 +19,15 @@ public class ManagerScript : MonoBehaviour
     public bool startSpawning = true;
     private AudioLowPassFilter lowPassFilter;
 
+    public bool isShutterDown;
+
     void Start() {
         totalScore = 0;
         totalScoreText.text = "$" + totalScore;
 
         // Get the AudioLowPassFilter component attached to the same GameObject
         lowPassFilter = GetComponent<AudioLowPassFilter>();
+        isShutterDown = true;
     }
 
     private void Update()

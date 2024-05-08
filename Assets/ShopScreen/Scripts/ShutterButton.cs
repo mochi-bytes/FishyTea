@@ -12,21 +12,20 @@ public class ShutterButton : MonoBehaviour
 
     public static GameObject shutter;
 
-    private bool callShutterUp = false;
-
     void Awake()
     {
         shutter = GameObject.FindGameObjectWithTag("Shutter");
-        // DontDestroyOnLoad(shutter);
+        DontDestroyOnLoad(shutter);
     }
+
 
     void Update()
     {
-        if (callShutterUp)
+        if (ManagerScript.Instance.isShutterDown)
         {
-            moveShutterUp();
-        } else {
             moveShutterDown();
+        } else {
+            moveShutterUp();
         }
       
     }
@@ -34,8 +33,6 @@ public class ShutterButton : MonoBehaviour
     void moveShutterUp()
     {
         float step = upSpeed * Time.deltaTime;
-
-        // Move towards the destination
         shutter.transform.position = Vector2.MoveTowards(shutter.transform.position, destinationPoint, step);
         
     }
@@ -43,15 +40,13 @@ public class ShutterButton : MonoBehaviour
     void moveShutterDown()
     {
         float step = downSpeed * Time.deltaTime;
-
-        // Move towards the destination
         shutter.transform.position = Vector2.MoveTowards(shutter.transform.position, startPoint, step);
         
     }
 
-    public void initiateShutterUp()
+    void OnMouseDown()
     {
-        callShutterUp = !callShutterUp;
+        ManagerScript.Instance.isShutterDown = !ManagerScript.Instance.isShutterDown;
     }
 
 

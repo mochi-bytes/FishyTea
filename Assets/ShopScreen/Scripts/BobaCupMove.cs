@@ -90,8 +90,9 @@ public class BobaCupMove : MonoBehaviour
             Debug.Log("Boba color in: " + bobaColor);
             PlayerPrefs.SetString("ObjectColor", ColorUtility.ToHtmlStringRGB(bobaColor));
         }
+ 
 
-        if (completedBobaSpawnerScript.AllSlotsOccupied() == false) {
+        if (completedBobaSpawnerScript.AllSlotsOccupied() == false && ManagerScript.Instance.isShutterDown == false) {
             currentDistance = Vector3.Distance(camera.transform.position, cursorPosition);
             // Zoom in towards the target position
             while (currentDistance > 0.1f)
