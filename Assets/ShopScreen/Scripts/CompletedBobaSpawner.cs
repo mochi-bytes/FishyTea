@@ -43,6 +43,7 @@ public class CompletedBobaSpawner : MonoBehaviour
             GameObject spawnedCompletedBoba = Instantiate(gameObjectPrefab, spawnPoints[slotIndex].position, Quaternion.identity);
             SpriteRenderer renderer = spawnedCompletedBoba.GetComponent<SpriteRenderer>();
             renderer.color = ManagerScript.Instance.bobaColor;
+            renderer.sortingOrder = 5;
             ManagerScript.Instance.slotOccupied[slotIndex] = true; // Mark the slot as occupied
         }
     }

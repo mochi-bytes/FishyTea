@@ -223,6 +223,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: CompletedBobaSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 4362534335667555643, guid: 6350ac88877a84c8cbbb3b2b07b6e9bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362534335667555643, guid: 6350ac88877a84c8cbbb3b2b07b6e9bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408957727501196531, guid: 6350ac88877a84c8cbbb3b2b07b6e9bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408957727501196531, guid: 6350ac88877a84c8cbbb3b2b07b6e9bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579213947036222469, guid: 6350ac88877a84c8cbbb3b2b07b6e9bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579213947036222469, guid: 6350ac88877a84c8cbbb3b2b07b6e9bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.32
+      objectReference: {fileID: 0}
     - target: {fileID: 5977274966971664277, guid: 6350ac88877a84c8cbbb3b2b07b6e9bb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1044,6 +1068,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8380324083822024692, guid: d524daced08194f76b3fb2668c1995fa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.69
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1481,16 +1509,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732069069}
-  m_LocalRotation: {x: -0, y: -0, z: -0.706208, w: 0.7080045}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.54419523, y: 0.6414844, z: 1}
+  m_LocalScale: {x: 0.40905264, y: 0.397, z: 0.61}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 246979369}
   - {fileID: 105016078}
   - {fileID: 2025924260}
   m_Father: {fileID: 899405236}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.854}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 7.46, y: -1.69}
@@ -1537,7 +1565,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: daa505f9d97904c1ea2698a90e03953a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27f7a4ba059ef4a20ab9872b7c8713ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

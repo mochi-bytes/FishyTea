@@ -26,21 +26,26 @@ public class DraggableCup : MonoBehaviour
     private void Start()
     {
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        Renderer orderRenderer = GetComponent<Renderer>();
         thisBobaColor = renderer.color;
 
         initialPosition = transform.position;
 
-        if (Mathf.Approximately(initialPosition.y, 0.04000001f))
+        Debug.Log("bobaspot" + initialPosition.y);
+        if (Mathf.Approximately(initialPosition.y, 0.5700001f))
         {
             index = 0;
+            renderer.sortingOrder = 2;
         }
-        else if (initialPosition.y == -1.27f)
+        else if (Mathf.Approximately(initialPosition.y, -0.8099999f))
         {
             index = 1;
+            renderer.sortingOrder = 3;
         }
         else
         {
             index = 2;
+            renderer.sortingOrder = 4;
         }
         initialPosition.z = 0f;
         GameObject completedBobaSpawner = GameObject.Find("CompletedBobaSpawner");
