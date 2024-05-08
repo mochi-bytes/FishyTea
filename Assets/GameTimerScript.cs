@@ -43,7 +43,7 @@ public class GameTimerScript : MonoBehaviour
 
         // once it gets to x = -17, get to end screen
         // if (transform.position.x <= -17.82f) 
-        if (transform.position.x <= -1f) 
+        if (transform.position.x <= -0.5f) 
         {
             Debug.Log("put in end screen here!!!");
             SceneManager.LoadScene("EndScene");
