@@ -21,6 +21,10 @@ public class ManagerScript : MonoBehaviour
 
     public AudioClip[] angrySounds;
 
+    public AudioClip moneySound;
+
+    public AudioClip trashSound;
+
     private AudioSource angrySoundPlayer;
 
     public bool isShutterDown;
@@ -84,4 +88,13 @@ public class ManagerScript : MonoBehaviour
         angrySoundPlayer.PlayOneShot(angrySounds[randomIndex]);
     }
 
+    public void playMoneySound()
+    {
+        angrySoundPlayer.PlayOneShot(moneySound);
+    }
+
+    public void playTrashSound()
+    {
+        angrySoundPlayer.PlayOneShot(trashSound);
+    }
 }

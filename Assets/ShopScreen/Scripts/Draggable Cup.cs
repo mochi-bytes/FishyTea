@@ -11,7 +11,7 @@ public class DraggableCup : MonoBehaviour
 
     private CompletedBobaSpawner completedBobaSpawnerScript;
 
-    private Noises eventSystemScript;
+    private ManagerScript managerScript;
 
     private Vector3 initialPosition;
 
@@ -46,8 +46,8 @@ public class DraggableCup : MonoBehaviour
         GameObject completedBobaSpawner = GameObject.Find("CompletedBobaSpawner");
         completedBobaSpawnerScript = completedBobaSpawner.GetComponent<CompletedBobaSpawner>();
 
-        GameObject eventSystem = GameObject.Find("EventSystem");
-        eventSystemScript = eventSystem.GetComponent<Noises>();
+        GameObject manager = GameObject.Find("Manager");
+        managerScript = manager.GetComponent<ManagerScript>();
     }
 
 
@@ -70,7 +70,7 @@ public class DraggableCup : MonoBehaviour
         {
             if (collider.gameObject.CompareTag("TrashCan"))
             {
-                eventSystemScript.playTrashSound();
+                managerScript.playTrashSound();
                 completedBobaSpawnerScript.FreeSlot(index);
                 Destroy(gameObject);
                 break;
@@ -85,12 +85,12 @@ public class DraggableCup : MonoBehaviour
                 if (customerColor == thisBobaColor)
                 {
                     customerOrderFulfill.orderComplete();
-                    eventSystemScript.playMoneySound();
+                    managerScript.playMoneySound();
                 }
                 else
                 {
                     customerOrderFulfill.orderDone();
-                    eventSystemScript.PlayAngrySound();
+                    managerScript.PlayAngrySound();
                 }
                 Destroy(gameObject);
                 break;
