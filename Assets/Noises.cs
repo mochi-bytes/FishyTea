@@ -28,7 +28,7 @@ public class Noises : MonoBehaviour
     public void PlayAngrySound()
     {
         // Get a random index within the range of the array
-        int randomIndex = Random.Range(0, angrySounds.Length - 1);
+        int randomIndex = Random.Range(0, angrySounds.Length);
 
         // Play the audio clip at the randomly selected index
         audioSource.PlayOneShot(angrySounds[randomIndex]);
