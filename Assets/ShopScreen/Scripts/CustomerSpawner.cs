@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CustomerSpawner : MonoBehaviour
 {
@@ -76,4 +77,5 @@ public class CustomerSpawner : MonoBehaviour
             slotOccupied[slotIndex] = false;
         }
     }
+
 }

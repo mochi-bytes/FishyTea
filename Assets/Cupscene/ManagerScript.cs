@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ManagerScript : MonoBehaviour
 {
@@ -11,7 +12,15 @@ public class ManagerScript : MonoBehaviour
     public bool[] slotOccupied = new bool[3];
 
     public Color bobaColor;
+    public int totalScore;
+    public Text totalScoreText;
     Scene scene;
+
+    void Start() {
+        totalScore = 0;
+        totalScoreText.text = "$" + totalScore;
+    }
+
     private void Awake()
     {
         if (Instance != null)
@@ -23,6 +32,15 @@ public class ManagerScript : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     
+    }
+
+    public void adjustScore(bool addScore) {
+        if (addScore) {
+            totalScore += 10;
+        } else {
+            totalScore -= 5;
+        }
+        totalScoreText.text = "$" + totalScore;
     }
 
 
