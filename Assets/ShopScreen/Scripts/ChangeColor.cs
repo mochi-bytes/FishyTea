@@ -11,10 +11,36 @@ public class ChangeColor : MonoBehaviour
     private SpriteRenderer rend;
     public Color bobaColor;
 
+    private SpriteRenderer childSpriteRenderer;
+    private SpriteRenderer parentSpriteRenderer;
+
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
         ChangeToRandomColor();
+
+        childSpriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (childSpriteRenderer != null)
+        {
+            Transform parent = transform.parent;
+            if (parent != null)
+            {
+                // Get the SpriteRenderer component of the parent object
+                parentSpriteRenderer = parent.GetComponent<SpriteRenderer>();
+
+                if (parentSpriteRenderer != null)
+                {
+                    // Change the parent's sprite
+                    // parentSpriteRenderer.sprite = childSpriteRenderer.sprite;
+                    parentSpriteRenderer.color = childSpriteRenderer.color;
+                    // You can apply other properties too if needed
+
+                    // Optionally, you may want to deactivate the child object
+                    //gameObject.SetActive(false);
+                }
+            }
+        }
     }
 
     void Awake()

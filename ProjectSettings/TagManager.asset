@@ -11,6 +11,7 @@ TagManager:
   - CompletedBoba
   - BobaOrder
   - TrashCan
+  - InnerCustomerBoba
   layers:
   - Default
   - TransparentFX
