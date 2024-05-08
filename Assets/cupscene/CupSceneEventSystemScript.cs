@@ -20,6 +20,10 @@ public class EventSystemScript : MonoBehaviour
     
             foreach (GameObject boba in completedBobaList) {
                 boba.GetComponent<SpriteRenderer>().enabled = true;
+                if (boba.GetComponent<Rigidbody2D>() != null && boba.GetComponent<BoxCollider2D>() != null) {
+                    boba.GetComponent<Rigidbody2D>().simulated = true;
+                    boba.GetComponent<BoxCollider2D>().enabled = true;
+                }
                 if (boba.transform.childCount > 0) {
                     ToggleAllObjAndChlidren(boba, true);
                 }
@@ -32,6 +36,10 @@ public class EventSystemScript : MonoBehaviour
             completedBobaList = completedBobaList.Concat(shutter).ToList();
     
             foreach (GameObject boba in completedBobaList) {
+                if (boba.GetComponent<Rigidbody2D>() != null && boba.GetComponent<BoxCollider2D>() != null) {
+                    boba.GetComponent<Rigidbody2D>().simulated = false;
+                    boba.GetComponent<BoxCollider2D>().enabled = false;
+                }
                 boba.GetComponent<SpriteRenderer>().enabled = false;
                 if (boba.transform.childCount > 0) {
                     ToggleAllObjAndChlidren(boba, false);
