@@ -87,8 +87,14 @@ public class DraggableCup : MonoBehaviour
                 Color customerColor = customerSpriteRenderer.color;
 
                 completedBobaSpawnerScript.FreeSlot(index);
-                CustomerOrderFulfill customerOrderFulfill = collider.gameObject.GetComponent<CustomerOrderFulfill>();
-                if (customerColor == thisBobaColor)
+                CustomerOrderFulfill customerOrderFulfill = collider.gameObject.GetComponent<CustomerOrderFulfill>(); // order complete or order done
+
+                float tolerance = 0.001f; // Adjust as needed
+
+                if (Mathf.Abs(customerColor.r - thisBobaColor.r) < tolerance &&
+                    Mathf.Abs(customerColor.g - thisBobaColor.g) < tolerance &&
+                    Mathf.Abs(customerColor.b - thisBobaColor.b) < tolerance &&
+                    Mathf.Abs(customerColor.a - thisBobaColor.a) < tolerance)
                 {
                     customerOrderFulfill.orderComplete();
                     managerScript.playMoneySound();

@@ -16,7 +16,7 @@ public class SetBackgroundColor : MonoBehaviour
         Debug.Log("BG COLOR IS " +  GetComponent<Camera>().backgroundColor);
     }
 
-    public Color HexToColor(string hex)
+    Color HexToColor(string hex)
     {
         Color color = Color.clear;
         if (!string.IsNullOrEmpty(hex) && hex.Length >= 6)
