@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class DraggableCup : MonoBehaviour
@@ -9,6 +10,8 @@ public class DraggableCup : MonoBehaviour
     private bool isMovingToMiddle;
 
     private CompletedBobaSpawner completedBobaSpawnerScript;
+
+    private Noises eventSystemScript;
 
     private Vector3 initialPosition;
 
@@ -42,6 +45,9 @@ public class DraggableCup : MonoBehaviour
         initialPosition.z = 0f;
         GameObject completedBobaSpawner = GameObject.Find("CompletedBobaSpawner");
         completedBobaSpawnerScript = completedBobaSpawner.GetComponent<CompletedBobaSpawner>();
+
+        GameObject eventSystem = GameObject.Find("EventSystem");
+        eventSystemScript = eventSystem.GetComponent<Noises>();
     }
 
 
@@ -64,35 +70,30 @@ public class DraggableCup : MonoBehaviour
         {
             if (collider.gameObject.CompareTag("TrashCan"))
             {
+                eventSystemScript.playTrashSound();
                 completedBobaSpawnerScript.FreeSlot(index);
                 Destroy(gameObject);
                 break;
             }
             if (collider.gameObject.CompareTag("BobaOrder"))
             {
-                Debug.Log("wajkajlkf");
-                // have to check if this color matches the order color 
-                // CustomerOrderFulfill bobaOrderScript = collider.gameObject.GetComponent<CustomerOrderFulfill>();
-                // Color bobaColor = bobaOrderScript.bobaColor;
-
                 SpriteRenderer customerSpriteRenderer = collider.gameObject.GetComponent<SpriteRenderer>();
                 Color customerColor = customerSpriteRenderer.color;
 
-
-
+                completedBobaSpawnerScript.FreeSlot(index);
+                CustomerOrderFulfill customerOrderFulfill = collider.gameObject.GetComponent<CustomerOrderFulfill>();
                 if (customerColor == thisBobaColor)
                 {
-                    completedBobaSpawnerScript.FreeSlot(index);
-                    CustomerOrderFulfill customerOrderFulfill = collider.gameObject.GetComponent<CustomerOrderFulfill>();
                     customerOrderFulfill.orderComplete();
-                    // needs to destroy the customer order too
-                    Destroy(gameObject);
-                    break;
+                    eventSystemScript.playMoneySound();
                 }
-
-                // completedBobaSpawnerScript.FreeSlot(index);
-                // Destroy(gameObject);
-                // break;
+                else
+                {
+                    customerOrderFulfill.orderDone();
+                    eventSystemScript.PlayAngrySound();
+                }
+                Destroy(gameObject);
+                break;
             }
             if (collider.gameObject == gameObject)
             {

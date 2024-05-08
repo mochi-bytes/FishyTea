@@ -518,6 +518,7 @@ MonoBehaviour:
   totalScore: 0
   totalScoreText: {fileID: 0}
   startSpawning: 1
+  angrySounds: []
 --- !u!4 &622516756
 Transform:
   m_ObjectHideFlags: 0
@@ -640,7 +641,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fef10d73d09de48c897c9f51ae71fca1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5c740c79299364ef992ff8467e45ec9f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

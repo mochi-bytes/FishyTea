@@ -11,6 +11,8 @@ public class TimerScript : MonoBehaviour
     private float yScale;
     private CustomerOrderFulfill customerOrderFulfillScript;
 
+    private ManagerScript managerScript;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -20,6 +22,10 @@ public class TimerScript : MonoBehaviour
 
         xScale = transform.localScale.x;
         yScale = transform.localScale.y;
+
+        GameObject manager = GameObject.Find("Manager");
+        managerScript = manager.GetComponent<ManagerScript>();
+
     }
 
     void Update()
@@ -46,6 +52,7 @@ public class TimerScript : MonoBehaviour
         if (currentDuration <= 0)
         {
             customerOrderFulfillScript.orderDone();
+            managerScript.PlayAngrySound();
         }
     }
 }

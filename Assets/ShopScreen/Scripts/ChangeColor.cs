@@ -26,18 +26,11 @@ public class ChangeColor : MonoBehaviour
             Transform parent = transform.parent;
             if (parent != null)
             {
-                // Get the SpriteRenderer component of the parent object
                 parentSpriteRenderer = parent.GetComponent<SpriteRenderer>();
 
                 if (parentSpriteRenderer != null)
                 {
-                    // Change the parent's sprite
-                    // parentSpriteRenderer.sprite = childSpriteRenderer.sprite;
                     parentSpriteRenderer.color = childSpriteRenderer.color;
-                    // You can apply other properties too if needed
-
-                    // Optionally, you may want to deactivate the child object
-                    //gameObject.SetActive(false);
                 }
             }
         }
