@@ -54,6 +54,7 @@ public class DraggableCup : MonoBehaviour
 
         GameObject manager = GameObject.Find("Manager");
         managerScript = manager.GetComponent<ManagerScript>();
+        CleanupScript.instance.AddObjectToDestroyOnLoad(gameObject);
     }
 
 

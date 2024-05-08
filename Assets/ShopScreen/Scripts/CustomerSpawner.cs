@@ -39,6 +39,7 @@ public class CustomerSpawner : MonoBehaviour
             InvokeRepeating("SpawnGameObject", 0f, spawnInterval); // Start spawning game objects
             managerScript.startSpawning = false;
         }
+        CleanupScript.instance.AddObjectToDestroyOnLoad(gameObject);
     }
 
     void Update()

@@ -36,6 +36,7 @@ public class CustomerOrderFulfill : MonoBehaviour
         // bobaColor = boob.color;
 
         Debug.Log("in customer order " + bobaColor);
+        CleanupScript.instance.AddObjectToDestroyOnLoad(gameObject);
     }
 
     void OnMouseDown() // Change to a normal method that will be called when user drags the completed order to it

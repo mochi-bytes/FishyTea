@@ -39,6 +39,8 @@ public class ManagerScript : MonoBehaviour
 
         angrySoundPlayer = gameObject.AddComponent<AudioSource>();
         isShutterDown = true;
+
+        CleanupScript.instance.AddObjectToDestroyOnLoad(gameObject);
     }
 
     private void Update()
