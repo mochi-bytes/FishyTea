@@ -28,7 +28,6 @@ public class ShutterButton : MonoBehaviour
         } else {
             moveShutterDown();
         }
-        
       
     }
 
