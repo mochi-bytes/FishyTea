@@ -11,6 +11,9 @@ public class ManagerScript : MonoBehaviour
     public bool[] slotOccupied = new bool[3];
 
     public Color bobaColor;
+
+    private AudioLowPassFilter lowPassFilter;
+
     Scene scene;
     private void Awake()
     {
@@ -22,8 +25,22 @@ public class ManagerScript : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    
+
     }
 
+    private void Start()
+    {
+        // Get the AudioLowPassFilter component attached to the same GameObject
+        lowPassFilter = GetComponent<AudioLowPassFilter>();
+    }
 
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name != "CupScene")
+        {
+            lowPassFilter.cutoffFrequency = 22000;
+        } else {
+            lowPassFilter.cutoffFrequency = 3000;
+        }
+    }
 }
