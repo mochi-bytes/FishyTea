@@ -17,10 +17,24 @@ public class ManagerScript : MonoBehaviour
     public Text totalScoreText;
     Scene scene;
     public bool startSpawning = true;
+    private AudioLowPassFilter lowPassFilter;
 
     void Start() {
         totalScore = 0;
         totalScoreText.text = "$" + totalScore;
+
+        // Get the AudioLowPassFilter component attached to the same GameObject
+        lowPassFilter = GetComponent<AudioLowPassFilter>();
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name != "CupScene")
+        {
+            lowPassFilter.cutoffFrequency = 22000;
+        } else {
+            lowPassFilter.cutoffFrequency = 3000;
+        }
     }
 
     private void Awake()
