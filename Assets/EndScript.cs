@@ -15,4 +15,9 @@ public class EndScript : MonoBehaviour
     {
         
     }
+
+    public void Restart() {
+        Debug.Log("Restart");
+        CleanupScript.instance.RestartGame();
+    }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CleanupScript : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class CleanupScript : MonoBehaviour
 
     // List to hold references to objects that should be destroyed on scene load
     private List<GameObject> objectsToDestroyOnLoad = new List<GameObject>();
+
+    public int totalScore;
+    public Text totalScoreText;
 
     void Awake()
     {
@@ -47,9 +51,8 @@ public class CleanupScript : MonoBehaviour
 
     public void RestartGame()
     {
-        // Reset game state here
-
-        // Reload the current scene to restart the game
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        totalScore = 0;
+        totalScoreText.text = "$" + totalScore;
+        SceneManager.LoadScene("catDragAndBoba");
     }
 }
