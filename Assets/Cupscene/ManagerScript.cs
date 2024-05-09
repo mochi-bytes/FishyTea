@@ -53,6 +53,12 @@ public class ManagerScript : MonoBehaviour
         {
             lowPassFilter.cutoffFrequency = 3000;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("esc");
+            Application.Quit();
+        }
     }
 
     private void Awake()
